@@ -126,7 +126,7 @@ Solve within 2 minutes
 
 def form_subtraction():
     a = random.choice(range(10,20))
-    b = random.choice(range(10,a+1))
+    b = random.choice(range(3,a+1))
     return f'\\subt{{{a}}}{{{b}}}'
 
 def form_addition():
