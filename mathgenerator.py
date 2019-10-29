@@ -115,6 +115,8 @@ Name:\\underline{{\\hspace*{{4cm}}}}
 
 \\textit{{Directions}} 
 
+Solve within 2 minutes
+
 {problems}
 
 \\end{{document}} 
@@ -122,20 +124,29 @@ Name:\\underline{{\\hspace*{{4cm}}}}
 
 """
 
+def form_subtraction():
+    a = random.choice(range(1,20))
+    b = random.choice(range(0,a))
+    return f'\\subt{{{a}}}{{{b}}}'
+
+def form_addition():
+    (a,b) = random.choices(range(1, 9), k=2)
+    return f'\\addi{{{a}}}{{{b}}}'
+
 def get_row_of_random_problems():
    
-   (a,b,c,d,e,f) = random.choices(range(1, 101), k=6)
+   #(a,b,c,d,e,f) = random.choices(range(1, 20), k=6) #this is beautiful if your student can handle subtraction with 
+   #a smaller number on top. Mine can't yet, so Iv'e got to use a less elegant solution.
    
-   return f'\\threeprobs{{\\divi{{{a}}}{{{b}}}}}{{\\mult{{{c}}}{{{d}}}}}{{\\addi{{{e}}}{{{f}}}}}'
+   return f'\\threeprobs{{{form_subtraction()}}}{{{form_addition()}}}{{{form_subtraction()}}}'
 
 def get_rows_of_random_problems(n):
     rows = ""
     for x in range(n):
         rows = rows +  '\n\n\\vspace{2cm}\n\n' + get_row_of_random_problems()
-        #rows = rows + get_row_of_random_problems() + "\\vspace{3cm}"
     return rows
 
-problems = get_rows_of_random_problems(5)  # May need more or fewer than 5 rows, try it out
+problems = get_rows_of_random_problems(10) 
 
 worksheet = latex_template.format(problems=problems)
 
