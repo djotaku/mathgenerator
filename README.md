@@ -23,16 +23,24 @@ To modify things for your own use, here are some of the places you will want to 
 
 That will be the title of your page. You might also want to edit "Teacher's Name" below that.
 
-The following lines may look different by the time you get here. But they are accurage as of commit <a href="https://github.com/djotaku/mathgenerator/tree/90a09d8911b0f05ebb43d6b556e8c8f5156f3652">90a09d8</a>. Or you can try and find the modified lines. Shouldn't be hard.
+## If you don't care about whether the subtraction problems yield negative numbers
 
-On the line: 
+If you uncomment the line: 
 
  (a,b,c,d,e,f) = random.choices(range(1, 101), k=6)
  
  You will want to edit the range based on how high you want the numbers to go.
  
- On the line:
+ Then you can modify the return to look like:
  
 return f'\\threeprobs{{\\divi{{{a}}}{{{b}}}}}{{\\mult{{{c}}}{{{d}}}}}{{\\addi{{{e}}}{{{f}}}}}'
 
 Change "divi", etc based on the mix of types of questions you want. As written above it will do one division problem, one multiplication problem, and one addition problem.
+
+## Otherwise
+
+In the subtraction function change your ranges as appropriate, but leave the second part of "b" as "a+1" so that you always have a positive subtraction problem.
+
+Then modify the addition choices.
+
+Currently not supporting multiplication or division in this model. See above if you want to turn it back to the version where it picks random numbers for all arithmatic (which can end up with negative subtraction) if you want to do that.
