@@ -5,15 +5,17 @@ based on a template provided by /u/lanemik on reddit
 
 # Running
 
-'''python3 mathgenerator.py'''
+python3 mathgenerator.py
 
 When it's done:
 
-'''latex worksheet.tex'''
+latex worksheet.tex
 
 To print, open in something that can view dvi files. eg:
 
-'''okular worksheet.dvi'''
+okular worksheet.dvi
+
+# Modifications
 
 To modify things for your own use, here are some of the places you will want to edit things:
 
