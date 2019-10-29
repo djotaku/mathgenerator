@@ -105,7 +105,7 @@ $\\begin{{array}}{{rr}}
 
 \\begin{{center}} 
   \\textsc{{Scarlett's Math Problems}} \\\\ 
-  Teacher's name
+  %Teacher's name
 \\end{{center}}
 
 Date:\\underline{{\\hspace*{{4cm}}}} \\hfill 
@@ -125,12 +125,12 @@ Solve within 2 minutes
 """
 
 def form_subtraction():
-    a = random.choice(range(1,20))
-    b = random.choice(range(0,a))
+    a = random.choice(range(10,20))
+    b = random.choice(range(10,a+1))
     return f'\\subt{{{a}}}{{{b}}}'
 
 def form_addition():
-    (a,b) = random.choices(range(1, 9), k=2)
+    (a,b) = random.choices(range(5, 10), k=2)
     return f'\\addi{{{a}}}{{{b}}}'
 
 def get_row_of_random_problems():
