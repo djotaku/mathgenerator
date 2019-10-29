@@ -52,9 +52,9 @@ latex_template = """%%----------LaTeX template for teachers---------------------
 % in the CONTENT section  
 
 \\newcommand\\divi[2]{{
-#1 \\: \\begin{{array}}{{|l}}
+$#1 \\: \\begin{{array}}{{|l}}
 \\hline #2
-\\end{{array}}
+\\end{{array}}$
 }}
 
 \\newcommand\\mult[2]{{
@@ -104,7 +104,7 @@ $\\begin{{array}}{{rr}}
 \\begin{{document}}
 
 \\begin{{center}} 
-  \\textsc{{Insert title here}} \\\\ 
+  \\textsc{{Scarlett's Math Problems}} \\\\ 
   Teacher's name
 \\end{{center}}
 
@@ -131,7 +131,8 @@ def get_row_of_random_problems():
 def get_rows_of_random_problems(n):
     rows = ""
     for x in range(n):
-        rows = rows +  '\\n\\vspace{{2cm}}\\n' + get_row_of_random_problems() 
+        rows = rows +  '\n\n\\vspace{2cm}\n\n' + get_row_of_random_problems()
+        #rows = rows + get_row_of_random_problems() + "\\vspace{3cm}"
     return rows
 
 problems = get_rows_of_random_problems(5)  # May need more or fewer than 5 rows, try it out
