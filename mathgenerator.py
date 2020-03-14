@@ -133,12 +133,16 @@ def form_addition():
     (a,b) = random.choices(range(5, 10), k=2)
     return f'\\addi{{{a}}}{{{b}}}'
 
+def form_multiplication():
+    (a,b) = random.choices((2,5,10,3,6,9), k=2)
+    return f'\\mult{{{a}}}{{{b}}}'
+
 def get_row_of_random_problems():
    
    #(a,b,c,d,e,f) = random.choices(range(1, 20), k=6) #this is beautiful if your student can handle subtraction with 
    #a smaller number on top. Mine can't yet, so Iv'e got to use a less elegant solution.
    
-   return f'\\threeprobs{{{form_subtraction()}}}{{{form_addition()}}}{{{form_subtraction()}}}'
+   return f'\\threeprobs{{{form_multiplication()}}}{{{form_multiplication()}}}{{{form_multiplication()}}}'
 
 def get_rows_of_random_problems(n):
     rows = ""
