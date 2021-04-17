@@ -104,7 +104,7 @@ $\\begin{{array}}{{rr}}
 \\begin{{document}}
 
 \\begin{{center}} 
-  \\textsc{{Scarlett's Math Problems}} \\\\ 
+  \\textsc{{Samuel and Stella's Math Problems}} \\\\ 
   %Teacher's name
 \\end{{center}}
 
@@ -125,32 +125,25 @@ Solve within 2 minutes
 """
 
 def form_subtraction():
-    a = random.choice(range(10,20))
-    b = random.choice(range(3,a+1))
+    a = random.choice(range(1,10))
+    b = random.choice(range(1,a+1))
     return f'\\subt{{{a}}}{{{b}}}'
 
 def form_addition():
-    (a,b) = random.choices(range(5, 10), k=2)
+    (a,b) = random.choices(range(1, 10), k=2)
     return f'\\addi{{{a}}}{{{b}}}'
 
-def form_multiplication():
-    (a,b) = random.choices(range(2,10), k=2)
-    return f'\\mult{{{a}}}{{{b}}}'
-
-def form_division():
-    pass
-
-def get_row_of_random_problems():
+def get_row_of_random_problems(row: int):
    
-   #(a,b,c,d,e,f) = random.choices(range(1, 20), k=6) #this is beautiful if your student can handle subtraction with 
-   #a smaller number on top. Mine can't yet, so Iv'e got to use a less elegant solution.
-   
-   return f'\\threeprobs{{{form_multiplication()}}}{{{form_multiplication()}}}{{{form_multiplication()}}}'
+   if row % 2 == 0:
+       return f'\\threeprobs{{{form_addition()}}}{{{form_addition()}}}{{{form_addition()}}}'
+   else:
+       return f'\\threeprobs{{{form_subtraction()}}}{{{form_subtraction()}}}{{{form_subtraction()}}}'
 
 def get_rows_of_random_problems(n):
     rows = ""
     for x in range(n):
-        rows = rows +  '\n\n\\vspace{2cm}\n\n' + get_row_of_random_problems()
+        rows = rows +  '\n\n\\vspace{2cm}\n\n' + get_row_of_random_problems(x)
     return rows
 
 problems = get_rows_of_random_problems(10) 
